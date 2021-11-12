@@ -1,0 +1,20 @@
+{
+  "name": "ebook-reader",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.7.0-beta.3"
+  },
+  "dependencies": {
+    "debounce": "^1.2.1",
+    "jszip": "^3.7.1",
+    "kuromojin": "^3.0.0",
+    "kuroshiro": "^1.2.0",
+    "kuroshiro-analyzer-kuromoji": "^1.1.0",
+    "sanitize-html": "^2.5.3"
+  }
+}
