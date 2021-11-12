@@ -14,7 +14,7 @@
     }
 
     #reader {
-      width: 75vw;
+      flex: 10;
       height: calc(100vh - 32px);
       color: #c7c7c7;
       overflow-y: scroll;
@@ -36,7 +36,9 @@
       flex: 3;
     }
 
-    svg, img, image {
+    svg,
+    img,
+    image {
       height: 80vh;
       width: 80vw;
       display: block;
@@ -53,12 +55,14 @@
       width: 100%;
     }
 
-    .empty svg, img {
+    .empty svg,
+    img {
       display: block;
       margin: 0;
     }
 
-    image:hover, img:hover {
+    image:hover,
+    img:hover {
       opacity: 1;
     }
 
@@ -77,20 +81,39 @@
     footer:hover {
       opacity: 1;
     }
+
+    main {
+      display: flex;
+    }
+
+    .side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
   </style>
-  <script type="module" crossorigin src="/browser-epub-reader/assets/index.1a387f94.js"></script>
+  <script type="module" crossorigin src="/browser-epub-reader/assets/index.f8c84983.js"></script>
   <link rel="modulepreload" href="/browser-epub-reader/assets/vendor.d403f47b.js">
   <link rel="stylesheet" href="/browser-epub-reader/assets/index.06d14ce2.css">
 </head>
 
 <body>
-  <div id="reader">
-    <div id="uploader">
-      <input type="file" id="ebookFile" />
+  <main>
+    <div class="side" data-action="prev">
+      <span>&larr;</span>
     </div>
-  </div>
-  <div>
+    <div id="reader">
+      <div id="uploader">
+        <input type="file" id="ebookFile" />
+      </div>
     </div>
+    <div class="side" data-action="next">
+      <span>&rarr;</span>
+    </div>
+  </main>
+
   <footer>
     <div class="slide-container">
       <label for="pageProgressSlider" id="pageProgress"></label>
@@ -99,7 +122,7 @@
 
     <div class="slide-container">
       <label for="fontSize">font size</label>
-      <input type="range" min="1" step="1" max="4" value="1" class="slider" id="fontSize">
+      <input type="range" min="1" step="1" max="10" value="1" class="slider" id="fontSize">
     </div>
     <div>
       <div id="percentReport"></div>
