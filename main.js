@@ -61,8 +61,9 @@ const store = makeStore({
         store.pageProgress.innerHTML = `${store.page}/${value}`;
         break;
       case "fontSize":
-        store.reader.style.fontSize = `${value}em`;
-        store.reader.style.lineHeight = `${value}em`;
+        const fontSize = (0.2 * value) + 1;
+        store.reader.style.fontSize = `${fontSize}em`;
+        store.reader.style.lineHeight = `${fontSize}em`;
         store.fontSizeSlider.value = value;
         writeConfig({ ...config, fontSize: value });
         break;
@@ -159,3 +160,11 @@ store.reader.onscroll = debounce(() => {
     document.getElementById("charReport").innerText = `${Math.round(store.charLength * (percent / 100))} / ${store.charLength} chars`;
   }
 }, 400);
+
+document.querySelector('div[data-action="prev"]').addEventListener("click", () => {
+  store.page--;
+})
+
+document.querySelector('div[data-action="next"]').addEventListener("click", () => {
+  store.page++;
+})
